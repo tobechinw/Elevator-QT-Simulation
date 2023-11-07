@@ -123,3 +123,11 @@ void elevator::call911(){
     qInfo("Done");
     setState(running);
 }
+
+void elevator::setFloorRequests(int floorRequests){
+    numFloorRequests = floorRequests;
+}
+
+int elevator::getFloorRequests(){
+    return numFloorRequests;
+}

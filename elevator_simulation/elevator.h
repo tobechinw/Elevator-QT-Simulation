@@ -18,6 +18,7 @@ private:
     bell* elevatorBell;
     int floorNum;
     state elevatorState;
+    int numFloorRequests;
     const int safeFloor = 1;
 public:
     elevator(int);
@@ -37,8 +38,9 @@ public:
     void callBuildingSafety();
     void call911();
 
+    int getFloorRequests();
     void setState(state state);
-
+    void setFloorRequests(int);
     void move(int);
     void moveUp(int);
     void moveDown(int);

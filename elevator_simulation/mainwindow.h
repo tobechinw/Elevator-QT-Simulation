@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "elevator.h"
+#include "ecs.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -18,7 +19,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    elevator* uiElevator;
+    ecs* uiECS;
 
 private slots:
     void doSomething();

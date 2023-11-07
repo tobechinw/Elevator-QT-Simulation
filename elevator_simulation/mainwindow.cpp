@@ -7,7 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    uiElevator = new elevator(1);
+    uiECS = new ecs();
     connect(ui->help, SIGNAL(released()), this, SLOT(handleHelp()));
     connect(ui->fire, SIGNAL(released()), this, SLOT(handleFireAlarm()));
     connect(ui->overload, SIGNAL(released()), this, SLOT(handleOverload()));
@@ -27,41 +27,38 @@ void MainWindow::doSomething(){
 }
 
 void MainWindow::handleHelp(){
-    uiElevator->setState(help);
-    uiElevator->handleHelp();
+    uiECS->handleHelp();
+    qInfo("\n");
 }
 
 void MainWindow::handleObstacle(){
-    uiElevator->setState(idle);
-    uiElevator->handleObstacle();
+    uiECS->handleObstacle();
+    qInfo("\n");
 }
 
 void MainWindow::handleFireAlarm(){
-    uiElevator->setState(fire);
-    uiElevator->handleFireAlarm();
+    uiECS->handleFireAlarm();
+    qInfo("\n");
 }
 
 void MainWindow::handleOverload(){
-    uiElevator->setState(overload);
-    uiElevator->handleOverload();
+    uiECS->handleOverload();
+    qInfo("\n");
 }
 
 void MainWindow::handlePowerOut(){
-    uiElevator->setState(powerout);
-    uiElevator->handlePowerOut();
-    uiElevator->setState(idle);
+    uiECS->handlePowerOut();
+    qInfo("\n");
 }
 
 
 void MainWindow::moveUp(){
-    uiElevator->setState(running);
-    uiElevator->move(5);
-    uiElevator->setState(idle);
+    uiECS->move(5);
+    qInfo("\n");
 }
 
 
 void MainWindow::moveDown(){
-    uiElevator->setState(running);
-    uiElevator->move(3);
-    uiElevator->setState(idle);
+    uiECS->move(3);
+    qInfo("\n");
 }

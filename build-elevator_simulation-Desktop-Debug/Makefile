@@ -54,12 +54,14 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../elevator_simulation/bell.cpp \
 		../elevator_simulation/door.cpp \
+		../elevator_simulation/ecs.cpp \
 		../elevator_simulation/elevator.cpp \
 		../elevator_simulation/main.cpp \
 		../elevator_simulation/mainwindow.cpp \
 		../elevator_simulation/sensor.cpp moc_mainwindow.cpp
 OBJECTS       = bell.o \
 		door.o \
+		ecs.o \
 		elevator.o \
 		main.o \
 		mainwindow.o \
@@ -145,11 +147,13 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		../elevator_simulation/elevator_simulation.pro ../elevator_simulation/bell.h \
 		../elevator_simulation/door.h \
+		../elevator_simulation/ecs.h \
 		../elevator_simulation/elevator.h \
 		../elevator_simulation/mainwindow.h \
 		../elevator_simulation/sensor.h \
 		../elevator_simulation/state.h ../elevator_simulation/bell.cpp \
 		../elevator_simulation/door.cpp \
+		../elevator_simulation/ecs.cpp \
 		../elevator_simulation/elevator.cpp \
 		../elevator_simulation/main.cpp \
 		../elevator_simulation/mainwindow.cpp \
@@ -339,8 +343,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../elevator_simulation/bell.h ../elevator_simulation/door.h ../elevator_simulation/elevator.h ../elevator_simulation/mainwindow.h ../elevator_simulation/sensor.h ../elevator_simulation/state.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../elevator_simulation/bell.cpp ../elevator_simulation/door.cpp ../elevator_simulation/elevator.cpp ../elevator_simulation/main.cpp ../elevator_simulation/mainwindow.cpp ../elevator_simulation/sensor.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../elevator_simulation/bell.h ../elevator_simulation/door.h ../elevator_simulation/ecs.h ../elevator_simulation/elevator.h ../elevator_simulation/mainwindow.h ../elevator_simulation/sensor.h ../elevator_simulation/state.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../elevator_simulation/bell.cpp ../elevator_simulation/door.cpp ../elevator_simulation/ecs.cpp ../elevator_simulation/elevator.cpp ../elevator_simulation/main.cpp ../elevator_simulation/mainwindow.cpp ../elevator_simulation/sensor.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../elevator_simulation/mainwindow.ui $(DISTDIR)/
 
 
@@ -413,6 +417,14 @@ bell.o: ../elevator_simulation/bell.cpp ../elevator_simulation/bell.h
 door.o: ../elevator_simulation/door.cpp ../elevator_simulation/door.h \
 		../elevator_simulation/sensor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o door.o ../elevator_simulation/door.cpp
+
+ecs.o: ../elevator_simulation/ecs.cpp ../elevator_simulation/ecs.h \
+		../elevator_simulation/elevator.h \
+		../elevator_simulation/state.h \
+		../elevator_simulation/bell.h \
+		../elevator_simulation/door.h \
+		../elevator_simulation/sensor.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ecs.o ../elevator_simulation/ecs.cpp
 
 elevator.o: ../elevator_simulation/elevator.cpp ../elevator_simulation/elevator.h \
 		../elevator_simulation/state.h \

@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     bell.cpp \
     door.cpp \
+    ecs.cpp \
     elevator.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
 HEADERS += \
     bell.h \
     door.h \
+    ecs.h \
     elevator.h \
     mainwindow.h \
     sensor.h \
