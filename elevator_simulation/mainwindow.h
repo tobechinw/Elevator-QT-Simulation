@@ -30,5 +30,6 @@ private slots:
     void handlePowerOut();
     void moveUp();
     void moveDown();
+    void handleCase2();
 };
 #endif // MAINWINDOW_H

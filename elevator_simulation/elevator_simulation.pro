@@ -14,8 +14,7 @@ SOURCES += \
     ecs.cpp \
     elevator.cpp \
     main.cpp \
-    mainwindow.cpp \
-    sensor.cpp
+    mainwindow.cpp
 
 HEADERS += \
     bell.h \
@@ -23,7 +22,6 @@ HEADERS += \
     ecs.h \
     elevator.h \
     mainwindow.h \
-    sensor.h \
     state.h
 
 FORMS += \

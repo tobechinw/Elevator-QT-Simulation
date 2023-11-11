@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     uiECS = new ecs();
     connect(ui->help, SIGNAL(released()), this, SLOT(handleHelp()));
+    connect(ui->normal2, SIGNAL(released()), this, SLOT(handleCase2()));
     connect(ui->fire, SIGNAL(released()), this, SLOT(handleFireAlarm()));
     connect(ui->overload, SIGNAL(released()), this, SLOT(handleOverload()));
     connect(ui->powerout, SIGNAL(released()), this, SLOT(handlePowerOut()));
@@ -53,12 +54,17 @@ void MainWindow::handlePowerOut(){
 
 
 void MainWindow::moveUp(){
-    uiECS->move(5);
+    uiECS->move(4);
     qInfo("\n");
 }
 
 
 void MainWindow::moveDown(){
-    uiECS->move(3);
+    uiECS->move(2);
+    qInfo("\n");
+}
+
+void MainWindow::handleCase2(){
+    uiECS->move(1, 3, 4);
     qInfo("\n");
 }

@@ -15,6 +15,7 @@ class ecs
 public:
     ecs();
     void move(int);
+    void move(int, int, int);
     void moveUp(int);
     void moveDown(int);
     void handleObstacle();

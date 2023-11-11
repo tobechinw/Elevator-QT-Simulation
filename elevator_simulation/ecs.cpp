@@ -21,6 +21,14 @@ void ecs::move(int floorNum){
     }
 }
 
+void ecs::move(int start, int stop, int destination){
+    int min = findMin();
+    qInfo("Elevator %d servicing", min);
+    elevators[min]->setState(running);
+    elevators[min]->move(start, stop, destination);
+    elevators[min]->setState(idle);
+}
+
 void ecs::handlePowerOut(){
     for(int i = 0; i < NUM_ELEVATORS; ++i){
         qInfo("Elevator %d handling power outage", i);

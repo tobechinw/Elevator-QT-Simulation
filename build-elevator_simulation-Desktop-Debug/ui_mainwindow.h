@@ -30,6 +30,7 @@ public:
     QPushButton *powerout;
     QPushButton *moveup;
     QPushButton *movedown;
+    QPushButton *normal2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -61,6 +62,9 @@ public:
         movedown = new QPushButton(centralwidget);
         movedown->setObjectName(QString::fromUtf8("movedown"));
         movedown->setGeometry(QRect(240, 80, 141, 81));
+        normal2 = new QPushButton(centralwidget);
+        normal2->setObjectName(QString::fromUtf8("normal2"));
+        normal2->setGeometry(QRect(400, 80, 121, 81));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -85,6 +89,7 @@ public:
         powerout->setText(QCoreApplication::translate("MainWindow", "power out", nullptr));
         moveup->setText(QCoreApplication::translate("MainWindow", "move up", nullptr));
         movedown->setText(QCoreApplication::translate("MainWindow", "move down", nullptr));
+        normal2->setText(QCoreApplication::translate("MainWindow", "normal case 2", nullptr));
     } // retranslateUi
 
 };

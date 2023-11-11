@@ -64,6 +64,15 @@ void elevator::move(int destination){
     }
 }
 
+void elevator::move(int start, int stop, int destination){
+    qInfo("Picking up first passenger");
+    move(start);
+    qInfo("Picking up next passenger");
+    move(stop);
+    qInfo("Moving to destination floor");
+    move(destination);
+}
+
 void elevator::setFloorNum(int floorNum) {
     this->floorNum = floorNum;
 }

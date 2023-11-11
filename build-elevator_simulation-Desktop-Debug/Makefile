@@ -57,15 +57,13 @@ SOURCES       = ../elevator_simulation/bell.cpp \
 		../elevator_simulation/ecs.cpp \
 		../elevator_simulation/elevator.cpp \
 		../elevator_simulation/main.cpp \
-		../elevator_simulation/mainwindow.cpp \
-		../elevator_simulation/sensor.cpp moc_mainwindow.cpp
+		../elevator_simulation/mainwindow.cpp moc_mainwindow.cpp
 OBJECTS       = bell.o \
 		door.o \
 		ecs.o \
 		elevator.o \
 		main.o \
 		mainwindow.o \
-		sensor.o \
 		moc_mainwindow.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -150,14 +148,12 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../elevator_simulation/ecs.h \
 		../elevator_simulation/elevator.h \
 		../elevator_simulation/mainwindow.h \
-		../elevator_simulation/sensor.h \
 		../elevator_simulation/state.h ../elevator_simulation/bell.cpp \
 		../elevator_simulation/door.cpp \
 		../elevator_simulation/ecs.cpp \
 		../elevator_simulation/elevator.cpp \
 		../elevator_simulation/main.cpp \
-		../elevator_simulation/mainwindow.cpp \
-		../elevator_simulation/sensor.cpp
+		../elevator_simulation/mainwindow.cpp
 QMAKE_TARGET  = elevator_simulation
 DESTDIR       = 
 TARGET        = elevator_simulation
@@ -343,8 +339,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../elevator_simulation/bell.h ../elevator_simulation/door.h ../elevator_simulation/ecs.h ../elevator_simulation/elevator.h ../elevator_simulation/mainwindow.h ../elevator_simulation/sensor.h ../elevator_simulation/state.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../elevator_simulation/bell.cpp ../elevator_simulation/door.cpp ../elevator_simulation/ecs.cpp ../elevator_simulation/elevator.cpp ../elevator_simulation/main.cpp ../elevator_simulation/mainwindow.cpp ../elevator_simulation/sensor.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../elevator_simulation/bell.h ../elevator_simulation/door.h ../elevator_simulation/ecs.h ../elevator_simulation/elevator.h ../elevator_simulation/mainwindow.h ../elevator_simulation/state.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../elevator_simulation/bell.cpp ../elevator_simulation/door.cpp ../elevator_simulation/ecs.cpp ../elevator_simulation/elevator.cpp ../elevator_simulation/main.cpp ../elevator_simulation/mainwindow.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../elevator_simulation/mainwindow.ui $(DISTDIR)/
 
 
@@ -386,6 +382,7 @@ moc_mainwindow.cpp: ../elevator_simulation/mainwindow.h \
 		../elevator_simulation/bell.h \
 		../elevator_simulation/door.h \
 		../elevator_simulation/sensor.h \
+		../elevator_simulation/ecs.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/student/Desktop/assignment3/build-elevator_simulation-Desktop-Debug/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/student/Desktop/assignment3/elevator_simulation -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../elevator_simulation/mainwindow.h -o moc_mainwindow.cpp
@@ -438,7 +435,8 @@ main.o: ../elevator_simulation/main.cpp ../elevator_simulation/mainwindow.h \
 		../elevator_simulation/state.h \
 		../elevator_simulation/bell.h \
 		../elevator_simulation/door.h \
-		../elevator_simulation/sensor.h
+		../elevator_simulation/sensor.h \
+		../elevator_simulation/ecs.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../elevator_simulation/main.cpp
 
 mainwindow.o: ../elevator_simulation/mainwindow.cpp ../elevator_simulation/mainwindow.h \
@@ -447,11 +445,9 @@ mainwindow.o: ../elevator_simulation/mainwindow.cpp ../elevator_simulation/mainw
 		../elevator_simulation/bell.h \
 		../elevator_simulation/door.h \
 		../elevator_simulation/sensor.h \
+		../elevator_simulation/ecs.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../elevator_simulation/mainwindow.cpp
-
-sensor.o: ../elevator_simulation/sensor.cpp ../elevator_simulation/sensor.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sensor.o ../elevator_simulation/sensor.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp

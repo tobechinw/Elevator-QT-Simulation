@@ -31,10 +31,6 @@ public:
     void closeDoor();
     void ringBell();
     void obstacle(bool);
-    void showFloorNum();
-    void sendFireSignal();
-    void sendOverloadSignal();
-    void sendHelpSignal();
     void callBuildingSafety();
     void call911();
 
@@ -42,6 +38,7 @@ public:
     void setState(state state);
     void setFloorRequests(int);
     void move(int);
+    void move(int, int, int);
     void moveUp(int);
     void moveDown(int);
     void handleObstacle();
